@@ -1,30 +1,33 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { App } from 'components/App';
-import { ThemeProvider } from 'styled-components';
-import { GlobalStyle } from 'components/GlobalStyles';
-import { BrowserRouter } from 'react-router-dom';
+import axios from 'axios';
 
-const theme = {
-  colors: {
-    accent: '#7ba7ab',
-    buttonAccent: '#1b7e87',
-    grey: '#f9f9f9',
-    error: '#dc143c',
-    bgInput: '#f9f0da',
-    white: '#fff',
-    textColor: '#212121',
-  },
-  spacing: value => `${value * 4}px`,
+axios.defaults.baseURL = 'https://api.themoviedb.org/3';
+axios.defaults.headers.common['Authorization'] =
+  'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZmQ0ODBmZTY3MDE2ODk5NjBmMWQzYjM0YWI0OGNlMCIsInN1YiI6IjY1M2NmYWM5ZTg5NGE2MDBjNTE2MGU0ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.SI4wLOe9-g2O22c_kRD4y1B2Ne0JXL2cyjtZyF8gcYM';
+axios.defaults.params = {
+  language: 'en-US',
 };
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <BrowserRouter basename="/goit-react-hw-05-movies">
-      <ThemeProvider theme={theme}>
-        <App />
-        <GlobalStyle />
-      </ThemeProvider>
-    </BrowserRouter>
-  </React.StrictMode>
-);
+export const fetchServiceMovies = async () => {
+  const response = await axios.get('/trending/movie/day');
+  return response.data;
+};
+
+export const fetchServiceSearchMovie = async searchValue => {
+  const response = await axios.get(`/search/movie?query=${searchValue}`);
+  return response.data;
+};
+
+export const fetchServiceMovieDetails = async movieId => {
+  const response = await axios.get(`/movie/${movieId}`);
+  return response.data;
+};
+
+export const fetchServiceMovieCredits = async movieId => {
+  const response = await axios.get(`/movie/${movieId}/credits`);
+  return response.data;
+};
+
+export const fetchServiceMovieReviews = async movieId => {
+  const response = await axios.get(`/movie/${movieId}/reviews`);
+  return response.data;
+};
