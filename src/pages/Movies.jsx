@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Vortex } from 'react-loader-spinner';
 import toast, { Toaster } from 'react-hot-toast';
-import { SearchForm } from 'components/SearchForm/SearchForm';
-import { MoviesList } from 'components/MoviesList/MoviesList';
+import { SearchForm } from '../components/SearchForm/SearchForm';
+import { MoviesList } from '../components/MoviesList/MoviesList';
 import { ContainerLoader } from 'components/ContainerLoader/ContainerLoader.styled';
 import { fetchServiceSearchMovie } from 'API';
 

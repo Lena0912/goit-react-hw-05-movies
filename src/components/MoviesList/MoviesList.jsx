@@ -1,10 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import {
-  MovieItem,
-  MovieLink,
-  MoviePoster,
-  MoviesListContainer,
-} from './MoviesList.styled';
+import {MovieItem, MovieLink, MoviePoster, MoviesListContainer} from './MoviesList.styled';
 
 export const MoviesList = ({ movies }) => {
   const location = useLocation();
