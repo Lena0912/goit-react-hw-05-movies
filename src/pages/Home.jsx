@@ -4,10 +4,7 @@ import { MoviesList } from '../components/MoviesList/MoviesList';
 import { fetchServiceMovies } from 'API';
 import { ContainerLoader } from '../components/ContainerLoader/ContainerLoader';
 
-    
-
-
- const Home = () => {
+     const Home = () => {
     const [trendingMovies, setTrendingMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(false);
