@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Vortex } from 'react-loader-spinner';
 import { MoviesList } from '../components/MoviesList/MoviesList';
 import { fetchServiceMovies } from 'API';
-import { ContainerLoader } from '../components/ContainerLoader/ContainerLoader';
+import { ContainerLoader } from '../components/ContainerLoader/ContainerLoader.styled';
 
      const Home = () => {
     const [trendingMovies, setTrendingMovies] = useState([]);
@@ -10,7 +10,7 @@ import { ContainerLoader } from '../components/ContainerLoader/ContainerLoader';
     const [error, setError] = useState(false);
 
     useEffect(() => {
-        async function fetchMovies() {
+        async function fetchTrendingMovies() {
             try {
                 setIsLoading(true);
                 setError(false);
@@ -23,7 +23,7 @@ import { ContainerLoader } from '../components/ContainerLoader/ContainerLoader';
                 setIsLoading(false);
             }
         };
-        fetchMovies();
+        fetchTrendingMovies();
     }, []);
 
     return (
@@ -45,10 +45,13 @@ import { ContainerLoader } from '../components/ContainerLoader/ContainerLoader';
                 </ContainerLoader>
             )}
             {error && (
-                <span>Whoops... Error! Please, reload this page!</span>
+                 <div>
+    <span>Oops! Something went wrong while fetching movies.</span>
+    <span>Please try again later or reload the page.</span>
+  </div>
             )}
         </main>
-    );
+    ); 
 
         };
 

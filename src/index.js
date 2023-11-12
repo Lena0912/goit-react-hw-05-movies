@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 const theme = {
   colors: {
-    accent: '#7ba7ab',
+    accent: '#60868a',
     buttonAccent: '#1b7e87',
     grey: '#f9f9f9',
     error: '#dc143c',

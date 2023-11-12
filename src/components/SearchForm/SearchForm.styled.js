@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Form, ErrorMessage, Field } from 'formik';
-import { TbCameraSearch } from 'react-icons/tb';
+import { BiSearchAlt } from 'react-icons/bi';
 
 export const ContainerSearchbar = styled.div`
   top: 0;
@@ -67,7 +67,7 @@ export const SearchButton = styled.button`
   }
 `;
 
-export const SearchIcon = styled(TbCameraSearch)`
+export const SearchIcon = styled(BiSearchAlt)`
   position: absolute;
   top: 10px;
   left: 10px;
